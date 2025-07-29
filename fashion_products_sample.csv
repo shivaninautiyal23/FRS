@@ -1,0 +1,23 @@
+product_id,product_name,category,brand,gender,image_path,price,occasions,class
+PID001,Red T-Shirt,T-Shirt,Nike,Unisex,img001.jpg,Rs 590,casual,upper wear
+PID002,Blue Jeans,Jeans,Levis,Men,img002.jpg,Rs 1299,formal casual,bottom wear
+PID003,White Shirt,Shirt,Zara,Men,img003.jpg,Rs 864,formal casual,upper wear
+PID004,Black Dress,Dress,H&M,Women,img004.jpg,Rs 1783,casual party,upper wear
+PID005,Green Hoodie,Hoodie,Adidas,Unisex,img005.jpg,Rs 594,casual,upper wear
+PID006,Yellow Skirt,Skirt,Forever 21,Women,img006.jpg,Rs 795,casual beach ,bottom wear
+PID007,Grey Jacket,Jacket,Puma,Men,img007.jpg,Rs 2100,gym casual ,upper wear
+PID008,Brown Boots,Boots,Timberland,Women,img008.jpg,Rs 4360,party casual, footwear
+PID009,Purple Top,Top,Only,Women,img009.jpg,Rs 598,casual party,upper wear
+PID010,Orange Pants,Pants,UCB,Men,img010.jpg,Rs 599,formal ,bottom wear
+PID011,Floral Dress,Dress,Zara,Women,img011.jpg,Rs 600,party casual,upper wear
+PID012,Denim Jacket,Jacket,Levis,Unisex,img012.jpg,Rs 1101,formal casual,upper wear
+PID013,Graphic Tee,T-Shirt,H&M,Men,img013.jpg,Rs 602,casual,upper wear
+PID014,Striped Shirt,Shirt,Zara,Men,img014.jpg,Rs 603,formal casual,upper wear
+PID015,Leather Belt,Belt,Woodland,Unisex,img015.jpg,Rs 604,formal casual party,accessories 
+PID016,Ankle Socks,Socks,Jockey,Unisex,img016.jpg,Rs 205,casual,accessories 
+PID017,Running Shoes,Shoes ,Nike,Unisex,img017.jpg,Rs 1606,casual gym,footwear
+PID018,Sweatpants,Pants,Adidas,Unisex,img018.jpg,Rs 1607,gym casual ,bottom wear
+PID019,Crop Top,Top,Forever 21,Women,img019.jpg,Rs 608,party casual,upper wear
+PID020,Formal Blazer,Blazer,Allen Solly,Men,img020.jpg,Rs 2500,formal casual,upper wear
+PID021,Yellow Top,Top,Only,Women,img021.jpg,Rs 610,casual ,upper wear
+PID022,Pink Kurti, Top Kurti,Zara,Women,img022.jpg,Rs 611,party casual,upper wear
