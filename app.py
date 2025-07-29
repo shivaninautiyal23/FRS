@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/Rajesh/OneDrive/Desktop/PYTHON/Fashion_Recommendation_System/saved_items.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Fashion_Recommendation_System/saved_items.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -49,7 +49,7 @@ class User(UserMixin, db.Model):
 
 with app.app_context():
     db.create_all()
-    print("DB created:", os.path.exists('C:/Users/Rajesh/OneDrive/Desktop/PYTHON/Fashion_Recommendation_System/saved_items.db'))
+    print("DB created:", os.path.exists('Fashion_Recommendation_System/saved_items.db'))
 
 
 @app.route('/')
