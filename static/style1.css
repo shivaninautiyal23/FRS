@@ -1,0 +1,298 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border: border-box;
+}
+.navbar{
+    height: 60px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.signin {
+  text-align: right;
+  padding: 15px 30px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  background: aliceblue;
+  border-radius: 30px;
+  color: #333;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.signin b {
+  color: black;
+}
+
+.signin a {
+  text-decoration: none;
+  color: black;
+  margin: 0 8px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.signin a:hover {
+  color: #3b6de0;
+}
+
+@media (max-width: 600px) {
+  .signin {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+
+.welcome{
+    /* margin-top: 20px; */
+    height:120px;
+    background-color: aliceblue;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.search-btn {
+  background: linear-gradient(to right, #ffe4c4, #f6cc99);
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 230, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+  background: linear-gradient(to right, #ffe4c4, #f6cc99);
+  box-shadow: 0 6px 15px rgba(255, 230, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.panel{
+    background-color: #212929ee;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.panel-deals{
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+.panel-ops p {
+    display: inline;
+    margin: 15px;
+}
+.panel-ops{
+    width: 70%;
+    font-size: 0.85rem;
+    margin-left: 15px;
+}
+.hero-sec{
+    background-color: rgba(127, 255, 212, 0.484);
+    height: 150px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-msg{
+    background-color: azure;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.85rem;
+    width: 80%;
+}
+
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color:aliceblue;
+}
+.box{
+    height: 400px;
+    width:23%;
+    background-color: white;
+    padding: 20px 0px 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box-content{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.box-img{
+    height: 320px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.box-content p{
+    color: #007185;
+}
+
+.img-out {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(127, 255, 212, 0.484);
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 128, 128, 0.3);
+}
+
+.upload-heading {
+  color: #2f4f4f;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+input[type="file"] {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.img {
+  width: 30%;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f0ffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 100, 100, 0.2);
+}
+
+.upload {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-file-upload {
+  background-color: #007185;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.custom-file-upload:hover {
+  background-color: #005f6b;
+}
+
+.upload input[type="file"] {
+  display: none;
+}
+
+
+.upload-btn {
+  padding: 12px 28px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+  background-color: #3e8e41;
+}
+
+  input[type="file"] {
+    font-size: 16px;
+    color: #444;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    outline: none;
+    cursor: pointer;
+  }
+
+  input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+  input[type="file"]::before {
+    content: '📁 Choose Image';
+    display: inline-block;
+    background: #007185;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    outline: none;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+
+.btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Personalized Recommendations Button */
+.personal-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.personal-btn:hover {
+  background-color: #45a049;
+}
+
+/* Advanced Filters Button */
+.filter-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.filter-btn:hover {
+  background-color: #0b7dda;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+
