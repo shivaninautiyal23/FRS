@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Recommendations</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='product.css') }}">
+</head>
+
+<body>
+  <h2 style="text-align: center; margin-top: 20px;">Recommended Products</h2>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul style="color: green; list-style: none; font-weight: bold;">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% endwith %}
+
+  {% if uploaded_image %}
+  <div class="uploaded-img-container">
+    <img src="/static/uploads/{{ uploaded_image }}" width="150">
+  </div>
+  {% endif %}
+
+  {% if recommendations %}
+  <div class="product-container">
+    {% for item in recommendations %}
+    <div class="product-card">
+      <img src="/static/images/{{ item.image_path }}" alt="{{ item.product_name }}">
+      <h3>{{ item.product_name }}</h3>
+      <p><strong>{{ item.brand }}</strong></p>
+      <p>{{ item.category }} | {{ item.gender }}</p>
+
+      <form action="{{ url_for('save_item', product_id=item['product_id']) }}" method="POST">
+
+        <input type="hidden" name="product_name" value="{{ item.product_name }}">
+        <input type="hidden" name="brand" value="{{ item.brand }}">
+        <input type="hidden" name="category" value="{{ item.category }}">
+        <input type="hidden" name="gender" value="{{ item.gender }}">
+        <input type="hidden" name="image_path" value="{{ item.image_path }}">
+        <button type="submit" class="like-btn">❤️ Save</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% elif items and not items.empty %}
+  <h2 style="text-align: center;">Recommended Items for {{ gender }}</h2>
+  <div class="product-container">
+    {% for item in items.itertuples() %}
+    <div class="product-card">
+      <img src="/static/images/{{ item.image_path }}" alt="{{ item.product_name }}">
+      <h3>{{ item.product_name }}</h3>
+      <p><strong>{{ item.brand }}</strong></p>
+      <p>{{ item.category }} | {{ item.gender }}</p>
+
+      <form action="{{ url_for('save_item', product_id=item['product_id']) }}" method="POST">
+        <input type="hidden" name="product_name" value="{{ item.product_name }}">
+        <input type="hidden" name="brand" value="{{ item.brand }}">
+        <input type="hidden" name="category" value="{{ item.category }}">
+        <input type="hidden" name="gender" value="{{ item.gender }}">
+        <input type="hidden" name="image_path" value="{{ item.image_path }}">
+        <button type="submit" class="like-btn">❤️ Save</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <p style="text-align: center;">No recommendations to show.</p>
+  {% endif %}
+
+  <div class="back-link">
+    <a href="/">← Go Back</a>
+  </div>
+</body>
+
+</html>

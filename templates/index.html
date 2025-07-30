@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Fashion Recommender</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <div class="webname">
+        <b><i>FRS</i></b>
+      </div>
+
+      
+      <form action="/recommend/name" method="POST">
+        <input type="text" name="product_name" placeholder="Search product name" class="search-btn" required>
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+
+      {% if current_user.is_authenticated %}
+      <div class="signin">
+        Logged in as: <b>{{ current_user.username }}</b> |
+        <a href="{{ url_for('view_saved') }}">Saved Items</a> |
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+      {% else %}
+      <div class="signin">
+        <a href="{{ url_for('login') }}">Login</a>
+      </div>
+      {% endif %}
+
+    </div>
+  </header>
+
+
+  <div class="welcome">
+    <h1>"WELCOME TO THE SITE"</h1>
+    <h2>~ We provide you Fashion and Recommendations here! ~ </h2>
+  </div>
+  <div class="panel">
+    <div class="panel-all">
+      <i class="fa-solid fa-bars"></i>
+      All
+    </div>
+    <div class="panel-ops">
+      <a href="/category/men" style="color: aliceblue; text-decoration:none ">
+        <p>MEN</p>
+      </a>
+      <a href="/category/women" style="color: aliceblue;text-decoration:none">
+        <p>WOMEN</p>
+      </a>
+      <a href="/category/accessories" style="color: aliceblue; text-decoration:none">
+        <p>ACCESSORIES</p>
+      </a>
+    </div>
+    <div>
+      <a href="{{url_for('view_saved')  }}" style="text-decoration: none; color: aliceblue;">⭐ View Saved Items</a>
+    </div>
+  </div>
+  <div class="hero-sec">
+    <div class="hero-msg">
+      <p>
+        VIRTUAL TRY ON FEATURE COMING SOON!! <a href="#"> Click here to SHOP</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="main">
+    <!-- Men Category -->
+    <div class="box">
+      <div class="box-content">
+        <h2>Shop for Men!</h2>
+        <a href="/category/Men">
+          <img class="box-img" src="{{ url_for('static', filename='images/mencat.jpg') }}" alt="Men's Fashion">
+        </a>
+        <p>See more</p>
+      </div>
+    </div>
+
+    <!-- Women Category -->
+    <div class="box">
+      <div class="box-content">
+        <h2>Shop for Women!</h2>
+        <a href="/category/Women">
+          <img class="box-img" src="{{ url_for('static', filename='images/womcat.jpg') }}" alt="Women's Fashion">
+        </a>
+        <p>See more</p>
+      </div>
+    </div>
+
+    <!-- Accessories Category -->
+    <div class="box">
+      <div class="box-content">
+        <h2>Accessories</h2>
+        <a href="/category/accessories">
+          <img class="box-img" src="{{ url_for('static', filename='images/acccat.jpg') }}" alt="Accessories">
+        </a>
+        <p>See more</p>
+      </div>
+    </div>
+  </div>
+
+  {% if recommendations %}
+  <h2>Recommended for {{ category_name }}</h2>
+  <div class="main">
+    {% for item in recommendations %}
+    <div class="box">
+      <img src="{{ url_for('static', filename='images/' + item.image_path) }}" width="150">
+      <p>{{ item.product_name }} | {{ item.brand }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="img-out">
+  <br>
+  <h2 class="upload-heading">
+    Upload a picture through which you want recommendations! 😊
+  </h2>
+  <br>
+  <div class="img">
+    <form action="/recommend/image" method="POST" enctype="multipart/form-data">
+      <div class="upload">
+        <label class="custom-file-upload">
+          📁 Choose Image
+          <input type="file" name="image" accept="image/*" required 
+            onchange="document.getElementById('file-name').textContent = '✅ ' + this.files[0].name + ' uploaded';">
+        </label>
+        <div class="file-name" id="file-name">No file chosen</div>
+      </div>
+      <div class="upload">
+        <button type="submit" class="upload-btn">🌟 Get Recommendations</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="button-container">
+    <form action="/recommend/personal">
+      <button type="submit" class="btn personal-btn">👤 Personalized Recommendations</button>
+    </form>
+
+    <form action="/recommend/filters" method="GET">
+      <button type="submit" class="btn filter-btn">🎯 Advanced Filters</button>
+    </form>
+  </div>

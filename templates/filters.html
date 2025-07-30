@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Advanced Filters</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='filter.css') }}">
+</head>
+
+<body>
+    <h2>Advanced Filters</h2>
+    <form action="/recommend/filters" method="POST">
+
+        <label>Select Categories:</label>
+        <div class="filter-group">
+            {% for cat in categories %}
+            <label class="filter-option">
+                <input type="checkbox" name="category" value="{{ cat }}"> {{ cat }}
+            </label>
+            {% endfor %}
+        </div>
+
+        <label>Select Brands:</label>
+        <div class="filter-group">
+            {% for brand in brands %}
+            <label class="filter-option">
+                <input type="checkbox" name="brand" value="{{ brand }}"> {{ brand }}
+            </label>
+            {% endfor %}
+        </div>
+
+        <label>Select Gender:</label>
+        <div class="filter-group">
+            {% for g in genders %}
+            <label class="filter-option">
+                <input type="radio" name="gender" value="{{ g }}"> {{ g }}
+            </label>
+            {% endfor %}
+        </div>
+
+
+        <br><button type="submit">Get Recommendations</button>
+    </form>
+
+    <a href="/">⬅️ Back to Home</a>
+</body>
+
+</html>

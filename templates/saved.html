@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saved Items</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='product.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            width: 250px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.02);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #444;
+        }
+
+        .product-card p {
+            margin: 4px 0;
+            color: #666;
+        }
+
+        .remove-btn {
+            margin-top: 10px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .remove-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .no-items {
+            text-align: center;
+            font-size: 18px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Your Saved Items</h2>
+
+    {% if saved_items %}
+        <div class="product-container">
+            {% for item in saved_items %}
+                <div class="product-card">
+                    <img src="/static/images/{{ item.image_path }}" alt="{{ item.product_name }}">
+                    <h3>{{ item.product_name }}</h3>
+                    <p><strong>{{ item.brand }}</strong></p>
+                    <p>{{ item.category }} | {{ item.gender }}</p>
+                    <form action="{{ url_for('remove_item', item_id=item.id) }}" method="POST">
+                        <button class="remove-btn" type="submit">Remove</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-items">No saved items to show.</p>
+    {% endif %}
+
+    <div class="back-link">
+        <a href="/">← Go Back</a>
+    </div>
+
+</body>
+</html>
